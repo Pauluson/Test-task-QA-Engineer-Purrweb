@@ -1,0 +1,45 @@
+---
+- summary: |
+    Документ не сохраняется в выбранной папке
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Ubuntu 20.04.6 LTS
+  steps-to-reproduce: |
+    1. Перейти на страницу https://staging.d2twwklgqmrfet.amplifyapp.com/documents
+    2. Создать папку
+    3. Перейти в созданную папку
+    4. Нажать "Create Document"
+    5. Создать документ
+  expected-result: |
+    Созданный документ отображается в созданной папке
+  actual-result: |
+    Созданный документ отображается в корне файлофой системы
+
+- summary: |
+    Дублирование названия папки
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Ubuntu 20.04.6 LTS
+  steps-to-reproduce: |
+    1. Перейти на страницу https://staging.d2twwklgqmrfet.amplifyapp.com/documents
+    2. Создать папку с названием "Test"
+    3. Создать папку с названием из второго шага
+  expected-result: |
+    Отображается ошибка с сообщение о том, что папка с таким названием уже есть
+  actual-result: |
+    Создается вторая папка с таким же названием
+
+- summary: |
+    Ошибка при подключении Google Drive
+  environment: |
+    Google Chrome Version 122.0.6261.129 (Official Build) (64-bit)
+    ОС Ubuntu 20.04.6 LTS
+  steps-to-reproduce: |
+    1. Перейти на страницу https://staging.d2twwklgqmrfet.amplifyapp.com/integrations
+    2. Нажать кнопку "Activate" Google Drive
+    3. Авторизироваться в аккаунте Google
+  expected-result: |
+    Google Drive подключен, документы доступны для импортирования
+  actual-result: |
+    Подключение не выполнена, Google выдал ошибку
+    Скриншот приложен в папке screenshots/integration_bug.png
